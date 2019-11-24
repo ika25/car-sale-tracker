@@ -52,3 +52,21 @@ carsRouter.delete('/:id',(req,res)=>{
             }});     
     });
 });
+
+//update 
+carsRouter.put('/:id',(req,res)=>{
+    Cars.findOneAndUpdate({_id : req.params.id},req.body,{runValidators: true},(err,response)=>{
+        if(err)
+            res.status(500).json({message:{
+                msgBody : "Unable to Update Car",
+                msgError : true
+            }});
+        else
+        res.status(200).json({message:{
+            msgBody: "Successfully Updated Car",
+            msgError : false
+        }});   
+    });
+});
+
+module.exports = carsRouter;
