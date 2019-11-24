@@ -28,4 +28,4 @@ const CarSchema = new Schema ({
 });
 
 //exoprt this to use in another file
-module.exports = mongoose.model('car', CarSchema);
+module.exports = mongoose.model('cars', CarSchema);
