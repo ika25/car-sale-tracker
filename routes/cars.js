@@ -36,3 +36,19 @@ carsRouter.post('/',(req,res)=>{
             }});
     });
 });
+
+// delete
+carsRouter.delete('/:id',(req,res)=>{
+    Cars.findByIdAndDelete(req.params.id,err=>{
+        if(err)
+            res.status(500).json({message:{
+                msgBody : "Unable to Delete car",
+                msgError : true
+            }});  
+        else
+            res.status(200).json({message:{
+                msgBody: "Successfully Deleted car",
+                msgError : false
+            }});     
+    });
+});
