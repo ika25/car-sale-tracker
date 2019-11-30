@@ -59,4 +59,17 @@ class App extends React.Component{
     showEditForm(cars){
         this.setState({isEditForm : true, cars : cars});
     }
+
+}
+
+async deleteHandler(id){
+    const deleteData = await CarsAPI.deleteCars(id);
+    const message = deleteData.message;
+    if(message.msgError){
+        this.setState({message});
+    }
+    else{
+        const data = await CarsAPI.getCars();
+        this.setState({message,car : data.response})
+    }
 }

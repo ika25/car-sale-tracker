@@ -7,8 +7,8 @@ app.use(bodyParser.json());
 
 
 //routes
-const employee = require('./routes/employee');
-app.use('/employee',employee);
+const cars = require('./routes/cars');
+app.use('/cars',cars);
 
 mongoose.connect('mongodb://localhost:27017/mernstack',
 {
