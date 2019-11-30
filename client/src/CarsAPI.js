@@ -14,5 +14,23 @@ export default {
                     .then(res => res.json())
                     .then(data => data);
     },
+    updateCars : (cars)=>{
+        return fetch(`/cars/${cars._id}`,
+                    {method : "put",
+                     body: JSON.stringify(cars),
+                     headers : {
+                         "Content-Type" : "application/json"
+                     }}).then(res => res.json())
+                        .then(data => data);
+    },
+    createCars : (cars)=>{
+        return fetch(`/cars`,
+            {method : 'post',
+            body: JSON.stringify(cars),
+            headers : {
+                "Content-Type" : "application/json"
+            }}).then(res => res.json())
+                .then(data => data);
+    }
 
 }
