@@ -10,7 +10,16 @@ app.use(bodyParser.json());
 const cars = require('./routes/cars');
 app.use('/cars',cars);
 
-mongoose.connect('mongodb://localhost:27017/mernstack',
+// we test o see what environment that we are at and to see we in production environment
+if(process.env.NODE_ENV === 'pruduction'){// This mean we are hosted on horuku
+    app.use(express.static('client/build'));// tell express where static files are located
+    app.get('*',(req,res)=>{// * means any get request we gonna do is send to react application to the user
+        res.sendFile(path.join(_dirname,'client','build','index.html'));
+    });
+}
+
+const uri = process.env.mongodb || 'mongodb://localhost:27017/mernstack'; // this is to check if there is veriable called MangoDB and if there sint that means we developing locally and i want to use this uri
+mongoose.connect(uri,
 {
     //to avoid deprecation warning
     useNewUrlParser: true,
