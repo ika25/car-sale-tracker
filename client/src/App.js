@@ -73,3 +73,43 @@ async deleteHandler(id){
         this.setState({message,car : data.response})
     }
 }
+
+async updateHandler(e){
+    e.preventDefault();
+    const updateData = await CarsAPI.updateCars(this.state.cars);
+    const message = updateData.message;
+    if(message.msgError){
+        this.setState({message});
+    }
+    else{
+        const data = await CarsAPI.getCar();
+        this.setState({message,car : data.response})
+    }
+    this.setState({isEditForm: false});
+    this.resetForm();
+}
+
+async addHandler(e){
+    e.preventDefault();
+    const postData = await CarsAPI.createCars(this.state.cars);
+    const message = postData.message;
+    if(message.msgError){
+        this.setState({message});
+    }
+    else{
+        const data = await CarsAPI.getCar();
+        this.setState({message,car : data.response});
+    }
+    this.resetForm();
+}
+
+renderCarsTable(){
+    if(this.state.car.length > 0){
+        return(
+            <EmployeeTable car={this.state.car}
+                           deleteHandler={this.deleteHandler}
+                           showEditForm={this.showEditForm}/>
+        );
+    }
+    return null;
+}
