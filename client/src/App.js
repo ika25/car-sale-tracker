@@ -113,3 +113,42 @@ renderCarsTable(){
     }
     return null;
 }
+
+// Render form function
+renderForm(){
+    return(
+        <Form isEditForm={this.state.isEditForm}
+              cars={this.state.cars}
+              handleChange={this.handleChange} //This will listen when user types onto form cars object will get updated
+              handler={!this.state.isEditForm ? this.addHandler : this.updateHandler}/>
+    ); 
+ }
+
+ renderMessage(){
+    if(this.state.message === "") // to check message state in empty
+        return null;
+    return(
+        <Message message={this.state.message}/> //pas massage as prop
+    );
+}
+
+// Main render function for app component
+render(){
+    return(
+        <div className="row">
+            <div className="col"></div>
+            <div className="col-10">
+                {this.renderCarsTable()}
+                {this.renderForm()}
+                {this.renderMessage()}
+            </div>
+            <div className="col"></div>
+        </div>
+    )
+}
+}
+
+// export component within app component
+export default App;
+
+
