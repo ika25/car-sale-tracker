@@ -3,13 +3,14 @@ import CarsTableRow from './CarsTableRow';
 
 const CarsTable = (props)=>{
     return(
-        <table class="table table-striped table-dark">
+        <table className="table table-striped table-dark">
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Car Maker</th>
+      <th scope="col">Car Model</th>
+      <th scope="col">Car Color</th>
+      <th scope="col">Car Price</th>
     </tr>
   </thead>
   <tbody>
