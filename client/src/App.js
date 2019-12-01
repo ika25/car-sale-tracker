@@ -60,7 +60,7 @@ class App extends React.Component{
         this.setState({isEditForm : true, cars : cars});
     }
 
-}
+
 
 async deleteHandler(id){
     const deleteData = await CarsAPI.deleteCars(id);
