@@ -7,10 +7,11 @@ import Form from './components/Form';
 import Message from './components/Message';
 import CarsAPI from './CarsAPI';
 
+
 class App extends React.Component{
     constructor(props){
-        super(props); // Will let me use .this keyword within constuctor
-        this.state = {
+        super(props); // eslint-disable-line
+        this.state = { // eslint-disable-line
             car : [],
             isEditForm : false,
             cars : {
@@ -20,7 +21,7 @@ class App extends React.Component{
                 carsPrice : ""
             },
             message : ""
-        },
+        }
 
         this.deleteHandler = this.deleteHandler.bind(this);
         this.addHandler = this.addHandler.bind(this);
@@ -106,7 +107,7 @@ async addHandler(e){
 renderCarsTable(){
     if(this.state.car.length > 0){
         return(
-            <EmployeeTable car={this.state.car}
+            <CarsTable car={this.state.car}
                            deleteHandler={this.deleteHandler}
                            showEditForm={this.showEditForm}/>
         );
