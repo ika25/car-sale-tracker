@@ -14,10 +14,10 @@ class App extends React.Component{
             car : [],
             isEditForm : false,
             cars : {
-                firstName : "",
-                lastName : "",
-                salary : "",
-                job : ""
+                CarsMaker : "",
+                CarsModel : "",
+                carsColor : "",
+                carsPrice : ""
             },
             message : ""
         },
@@ -39,10 +39,10 @@ class App extends React.Component{
     resetForm(){
         this.setState({
             cars: {
-                firstName : "",
-                lastName : "",
-                salary : "",
-                job : ""
+                CarsMaker : "",
+                CarsModel : "",
+                arsColor : "",
+                carsPrice : ""
             }
         });
     }
